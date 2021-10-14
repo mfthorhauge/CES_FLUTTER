@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 
+import '../../model/parcel.dart';
+
 class TrackScreen extends StatelessWidget {
   const TrackScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final items = List<Parcel>.generate(
+      10, (i) => Parcel("customer X", "origin", "destination", "10", "ABC", "done", "done")
+    );
     return Scaffold(
       appBar: AppBar(
         actions: [
           TextButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.popAndPushNamed(context, "/route1");
               },
               child: const Text(
                 'Plan route',
@@ -32,33 +38,36 @@ class TrackScreen extends StatelessWidget {
           height: 40,
         ),
       ),
-      body: Center(
-          child: Column(
+      body: Column(
         children: [
-          const Text("Track a parcel"),
-          // ListView(
-          //   children: const <Widget>[
-          //     TrackListRow()
-          //   ],
-          // ),
+      const Text("Track a parcel"),
+          // ListView.builder(
+          //   itemCount: items.length,
+          //   itemBuilder: (context, index) {
+          //     final item = items[index];
+          //     return TrackListRow(parcel: item);
+          //   },
+          // )
         ],
-      )),
+      ),
     );
   }
 }
 
 class TrackListRow extends StatelessWidget {
-  const TrackListRow({Key? key}) : super(key: key);
+  const TrackListRow({Key? key, required this.parcel}) : super(key: key);
+
+  final Parcel parcel;
 
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      const Text("Customer"),
-      Text("Origin"),
-      Text("Destination"),
-      Text("Duration"),
-      Text("Tracking Number"),
-      Text("Status"),
+      Text(parcel.customer),
+      Text(parcel.origin),
+      Text(parcel.destination),
+      Text(parcel.destination),
+      Text(parcel.trackingNumber),
+      Text(parcel.status),
       Checkbox(value: false, onChanged: (bool? value) {})
     ]);
   }
