@@ -8,19 +8,13 @@ class TrackScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: ListView(
-          children: const <Widget>[
-            ListTile(
-              leading: Icon(Icons.map),
-              title: Text('Map'),
-            ),
-            ListTile(
-              leading: Icon(Icons.photo_album),
-              title: Text('Album'),
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Phone'),
+        child: Column(
+          children: [
+            const Text("Track a parcel"),
+            ListView(
+              children: const <Widget>[
+                TrackListRow()
+              ],
             ),
           ],
         )
@@ -28,3 +22,21 @@ class TrackScreen extends StatelessWidget {
     );
   }
 }
+
+class TrackListRow extends StatelessWidget {
+  const TrackListRow({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: [
+      const Text("Customer"),
+      Text("Origin"),
+      Text("Destination"),
+      Text("Duration"),
+      Text("Tracking Number"),
+      Text("Status"),
+      Checkbox(value: false, onChanged: (bool? value) {})
+    ]);
+  }
+}
+

@@ -6,36 +6,48 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          SizedBox(width: 300 ,child: Image.asset("assets/images/telstar.jpg")),
           const Text("Login", style: TextStyle(fontWeight: FontWeight.bold)),
-          const SizedBox(
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: SizedBox(
+                width: 300.0,
+                child:  TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), hintText: 'User Id'),
+                ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: SizedBox(
               width: 300.0,
               child:  TextField(
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(), hintText: 'User Id'),
+                    border: OutlineInputBorder(), hintText: 'Password'),
               ),
-          ),
-          const SizedBox(
-            width: 300.0,
-            child:  TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Password'),
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(
-                context,
-                '/route1',
-              );
-            },
-            child: const Text('Login'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/route1',
+                );
+              },
+              child: const Text('Login'),
+            ),
           ),
-          TextButton(
-            child: const Text('Create Account'),
-            onPressed: () {},
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextButton(
+              child: const Text('Create Account'),
+              onPressed: () {},
+            ),
           ),
         ]),
       ),
