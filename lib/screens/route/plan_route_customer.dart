@@ -43,12 +43,20 @@ class PlanRouteCustomer extends StatelessWidget {
               ),),
               Spacer(),
             ]),
-            const TextField(
-              obscureText: false,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Customer ID',
-              ),
+            Row(
+              children: const [
+                SizedBox(
+                  width: 300,
+                  child: TextField(
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Customer ID',
+                    ),
+                  ),
+                ),
+                Spacer()
+              ],
             ),
             Row(
               children: [
