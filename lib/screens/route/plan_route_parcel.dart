@@ -3,7 +3,7 @@ import 'package:telco_web_client/components/custom_app_bar.dart';
 
 enum PriceAdjustment { markup, discount }
 
-//TODO: Should import into parcel.dart object
+//TODO: Should import into order.dart object
 class PlanRouteParcel extends StatelessWidget {
   const PlanRouteParcel({Key? key}) : super(key: key);
   final PriceAdjustment? _adjustment = PriceAdjustment.markup;

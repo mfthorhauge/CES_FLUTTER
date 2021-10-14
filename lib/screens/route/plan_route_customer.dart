@@ -8,7 +8,6 @@ class PlanRouteCustomer extends StatefulWidget {
   @override
   _PlanRouteCustomerState createState() => _PlanRouteCustomerState();
 }
-
 class _PlanRouteCustomerState extends State<PlanRouteCustomer> {
   Customer customer = Customer(0, "", "", "", "", "");
 

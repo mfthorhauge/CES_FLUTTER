@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
 
-import '../../model/parcel.dart';
+import '../../model/order.dart';
 
 class TrackScreen extends StatelessWidget {
   const TrackScreen({Key? key}) : super(key: key);
