@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telco_web_client/screens/customer/create_customer.dart';
 import 'package:telco_web_client/screens/route/plan_route_addresses.dart';
 import 'package:telco_web_client/screens/route/plan_route_choices.dart';
 import 'package:telco_web_client/screens/route/plan_route_customer.dart';
@@ -45,6 +46,11 @@ class MyApp extends StatelessWidget {
         if (settings.name == '/track') {
           return MaterialPageRoute(
             builder: (context) => const TrackScreen(),
+          );
+        }
+        if (settings.name == '/newcustomer') {
+          return MaterialPageRoute(
+            builder: (context) => const CreateCustomer(),
           );
         }
         return MaterialPageRoute(
