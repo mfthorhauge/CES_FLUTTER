@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:telco_web_client/screens/customer/create_customer.dart';
+import 'package:telco_web_client/screens/provider/parcel_service.dart';
 import 'package:telco_web_client/screens/route/plan_route_addresses.dart';
 import 'package:telco_web_client/screens/route/plan_route_choices.dart';
 import 'package:telco_web_client/screens/route/plan_route_confirmation.dart';
@@ -11,7 +13,14 @@ import 'package:telco_web_client/screens/track/track_screen.dart';
 import 'screens/login/login_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ParcelService()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -65,8 +74,7 @@ class MyApp extends StatelessWidget {
             builder: (context) => const CreateCustomer(),
           );
         }
-        return MaterialPageRoute(
-            builder: (context) => const LoginScreen());
+        return MaterialPageRoute(builder: (context) => const LoginScreen());
       },
       theme: ThemeData(
         primaryColor: Colors.white,

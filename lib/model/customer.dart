@@ -1,10 +1,10 @@
 class Customer {
-  final int id;
-  final String name;
-  final String email;
-  final String address;
-  final String postcode;
-  final String city;
+  int id;
+  String name;
+  String email;
+  String address;
+  String postcode;
+  String city;
   String? cardHolder;
   int? creditCard;
   int? ccv;
