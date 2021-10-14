@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum PriceAdjustment{markup, discount}
+enum PriceAdjustment { markup, discount }
 
 class PlanRouteParcel extends StatelessWidget {
   const PlanRouteParcel({Key? key}) : super(key: key);
@@ -24,13 +24,13 @@ class PlanRouteParcel extends StatelessWidget {
             Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
               Text("Parcel information"),
             ]),
-            Row( children: const [
+            Row(children: const [
               Text("Amount"),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
-                  child:  TextField(
+                  child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), hintText: "Add a number"),
                   ),
@@ -38,15 +38,16 @@ class PlanRouteParcel extends StatelessWidget {
               ),
             ]),
             //TODO: Need to connect with backend endpoint
-            Row( children: const [
+            Row(children: const [
               Text("Category"),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
-                  child:  TextField(
+                  child: TextField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: "- Select a category - "),
+                        border: OutlineInputBorder(),
+                        hintText: "- Select a category - "),
                   ),
                 ),
               ),
@@ -73,38 +74,39 @@ class PlanRouteParcel extends StatelessWidget {
                 ),
               ),
             ]),
-            */Row( children: const [
+            */
+            Row(children: const [
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
-                  child:  TextField(
+                  child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), hintText: "Add a number"),
                   ),
                 ),
               ),
             ]),
-            Row( children: const [
+            Row(children: const [
               Text("Weight"),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
-                  child:  TextField(
+                  child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), hintText: "Grams"),
                   ),
                 ),
               ),
             ]),
-            Row( children: const [
+            Row(children: const [
               Text("Size"),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
-                  child:  TextField(
+                  child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), hintText: "Length"),
                   ),
@@ -114,7 +116,7 @@ class PlanRouteParcel extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
-                  child:  TextField(
+                  child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), hintText: "Width"),
                   ),
@@ -124,7 +126,7 @@ class PlanRouteParcel extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
-                  child:  TextField(
+                  child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), hintText: "Height"),
                   ),
