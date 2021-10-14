@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:telco_web_client/screens/plan_route_customer.dart';
+import 'package:telco_web_client/screens/track/track_screen.dart';
 
-import 'screens/login_screen.dart';
+import 'screens/login/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,11 @@ class MyApp extends StatelessWidget {
         if (settings.name == '/route1') {
           return MaterialPageRoute(
             builder: (context) => const PlanRouteCustomer(),
+          );
+        }
+        if (settings.name == '/track') {
+          return MaterialPageRoute(
+            builder: (context) => const TrackScreen(),
           );
         }
         return MaterialPageRoute(
