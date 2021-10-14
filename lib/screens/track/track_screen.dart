@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telco_web_client/components/custom_app_bar.dart';
 
 import '../../model/parcel.dart';
 
@@ -12,32 +13,7 @@ class TrackScreen extends StatelessWidget {
       10, (i) => Parcel("customer X", "origin", "destination", "10", "ABC", "done", "done")
     );
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          TextButton(
-              onPressed: () {
-                Navigator.popAndPushNamed(context, "/route1");
-              },
-              child: const Text(
-                'Plan route',
-                style: TextStyle(color: Colors.white),
-              )),
-          TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text(
-                'Track Parcel',
-                style: TextStyle(color: Colors.white),
-              )),
-        ],
-        centerTitle: false,
-        title: Image.asset(
-          "assets/images/telstar.jpg",
-          fit: BoxFit.contain,
-          height: 40,
-        ),
-      ),
+      appBar: CustomAppBar(appBar: AppBar(),),
       body: Column(
         children: [
       const Text("Track a parcel"),
