@@ -19,121 +19,118 @@ class PlanRouteAddresses extends StatelessWidget {
                 Text("Step 3 of 5"),
               ],
             ),
-            Row(children: const [
-              Text("Origin"),
-              Spacer(),
-              Text("Destination")
+            Row(children: [
+              const Spacer(),
+              //TODO: origin address
+              Column(children: const [
+                Text("Origin"),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 300.0,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Sender",
+                          labelText: "Name"),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 300.0,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Address",
+                          labelText: "Address"),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 300.0,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "- Select a city -",
+                          labelText: "City"),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 300.0,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Country",
+                          labelText: "Country"),
+                    ),
+                  ),
+                ),
+              ]),
+              Column(children: const [
+                Text("Destination"),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 300.0,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Receiver",
+                          labelText: "Name"),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 300.0,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Address",
+                          labelText: "Address"),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 300.0,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "- Select a city -",
+                          labelText: "City"),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 300.0,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Country",
+                          labelText: "Country"),
+                    ),
+                  ),
+                ),
+              ]),
+
+              const Spacer(),
+              Column(
+                  //TODO: Use imported customer object to create information in panel
+                  ),
+              const Spacer(),
             ]),
-            Row(children: const [
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Sender",
-                        labelText: "Sender"),
-                  ),
-                ),
-              ),
-              Spacer(),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Receiver",
-                        labelText: "Receiver"),
-                  ),
-                ),
-              ),
-            ]),
-            Row(children: const [
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Address",
-                        labelText: "Address"),
-                  ),
-                ),
-              ),
-              Spacer(),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Address",
-                        labelText: "Address"),
-                  ),
-                ),
-              ),
-            ]),
-            Row(children: const [
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Postcode",
-                        labelText: "Postcode"),
-                  ),
-                ),
-              ),
-              Spacer(),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Postcode",
-                        labelText: "Postcode"),
-                  ),
-                ),
-              ),
-            ]),
-            //TODO: These two boxes should be dropdown menues based on the city entities.
-            Row(children: const [
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "- Select a city -",
-                        labelText: "City"),
-                  ),
-                ),
-              ),
-              Spacer(),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "- Select a city -",
-                        labelText: "City"),
-                  ),
-                ),
-              ),
-            ]),
-            //TODO: Same as billing address import for information fields in form. Needs extra endpoint.
             Row(children: [
               const Spacer(),
               ElevatedButton(
