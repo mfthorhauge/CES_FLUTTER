@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telco_web_client/components/custom_app_bar.dart';
 
 class PlanRouteAddresses extends StatelessWidget {
   const PlanRouteAddresses({Key? key}) : super(key: key);
@@ -6,7 +7,7 @@ class PlanRouteAddresses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: CustomAppBar(appBar: AppBar(),),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -142,11 +143,12 @@ class PlanRouteAddresses extends StatelessWidget {
                     );
                   },
                   child: const Text("Back")),
+              //TODO: Pushing this button should call the calculate route method, the routes are displayed on the next page.
               ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      '/route2',
+                      '/route4',
                     );
                   },
                   child: const Text("Next Step")),

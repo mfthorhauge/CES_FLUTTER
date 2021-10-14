@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telco_web_client/components/custom_app_bar.dart';
 
 class PlanRouteCustomer extends StatelessWidget {
   const PlanRouteCustomer({Key? key}) : super(key: key);
@@ -6,7 +7,7 @@ class PlanRouteCustomer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: CustomAppBar(appBar: AppBar(),),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

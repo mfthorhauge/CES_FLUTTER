@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telco_web_client/components/custom_app_bar.dart';
 
 enum PriceAdjustment { markup, discount }
 
@@ -9,8 +10,7 @@ class PlanRouteParcel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
+      appBar: CustomAppBar(appBar: AppBar(),),      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
