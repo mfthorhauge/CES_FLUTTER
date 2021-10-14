@@ -10,8 +10,8 @@ class PlanRouteAddresses extends StatefulWidget {
 }
 
 class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
-  final Address destinationAddress = Address("", "", "", "");
-  final Address originAddress = Address("", "", "", "");
+  Address destinationAddress = Address("", "", "", "");
+  Address originAddress = Address("", "", "", "");
 
   @override
   Widget build(BuildContext context) {

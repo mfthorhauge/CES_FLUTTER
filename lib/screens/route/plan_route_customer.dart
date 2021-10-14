@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
+import 'package:telco_web_client/model/customer.dart';
 
-class PlanRouteCustomer extends StatelessWidget {
+class PlanRouteCustomer extends StatefulWidget {
   const PlanRouteCustomer({Key? key}) : super(key: key);
+
+  @override
+  _PlanRouteCustomerState createState() => _PlanRouteCustomerState();
+}
+
+class _PlanRouteCustomerState extends State<PlanRouteCustomer> {
+  Customer customer = Customer(0, "", "", "", "", "");
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +39,8 @@ class PlanRouteCustomer extends StatelessWidget {
                 Spacer(),
                 Text("Step 1 of 5",
                   style: TextStyle(
-                    fontSize: 24.0,
-                    color: Colors.grey
+                      fontSize: 24.0,
+                      color: Colors.grey
                   ),
                 ),
               ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
-import 'package:telco_web_client/model/route_suggestions.dart';
+import 'package:telco_web_client/model/route.dart';
 
 //TODO: Should make a list that display atleast 1 possible route and maximum of three routes
 class PlanRouteChoices extends StatelessWidget {
