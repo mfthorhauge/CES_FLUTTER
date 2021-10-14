@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telco_web_client/screens/plan_route_customer.dart';
 
 import 'screens/login_screen.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         // Handle '/'
         if (settings.name == '/route1') {
           return MaterialPageRoute(
-            builder: (context) => const LoginScreen(),
+            builder: (context) => const PlanRouteCustomer(),
           );
         }
         return MaterialPageRoute(
