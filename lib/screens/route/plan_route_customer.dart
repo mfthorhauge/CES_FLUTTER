@@ -35,9 +35,9 @@ class PlanRouteCustomer extends StatelessWidget {
                 TextButton(
                   child: const Text('Create new user'),
                   onPressed: () {
-                    Navigator.popAndPushNamed(
+                    Navigator.pushNamed(
                       context,
-                      '/createCustomer',
+                      '/newcustomer',
                     );
                   },
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telco_web_client/components/custom_app_bar.dart';
 
 class CreateCustomer extends StatelessWidget {
   const CreateCustomer({Key? key}) : super(key: key);
@@ -6,6 +7,7 @@ class CreateCustomer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(appBar: AppBar(),),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         const Text("Create new customer"),
