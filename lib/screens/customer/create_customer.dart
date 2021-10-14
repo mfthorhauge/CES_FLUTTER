@@ -38,7 +38,27 @@ class CreateCustomer extends StatelessWidget {
                 value: value,
                 child: Text(value, style: const TextStyle(color:Colors.black),),
               );
-            }).toList(),)
+            }).toList(),),
+            Row(
+              children: [
+                const Spacer(),
+                TextButton(
+                  child: const Text('CANCEL'),
+                  onPressed: () {
+                    Navigator.pop(
+                      context
+                    );
+                  },
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(
+                          context
+                      );
+                    },
+                    child: const Text("Create New Customer")),
+              ],
+            ),
           ],)
         ]),
       ),
