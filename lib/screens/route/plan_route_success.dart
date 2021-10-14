@@ -27,15 +27,17 @@ class PlanRouteSuccess extends StatelessWidget {
                     const Spacer(),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.pop(
+                          Navigator.pushNamed(
                             context,
+                            "/track"
                           );
                         },
                         child: const Text("Track Parcel")),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.pop(
+                          Navigator.pushNamed(
                             context,
+                            "/route1"
                           );
                         },
                         child: const Text("Add new parcel")),

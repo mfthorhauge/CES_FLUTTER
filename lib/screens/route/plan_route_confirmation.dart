@@ -44,7 +44,7 @@ class PlanRouteConfirmation extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      '/routeSuccess',
+                      '/routesuccess',
                     );
                   },
                   child: const Text("Confirm")),
