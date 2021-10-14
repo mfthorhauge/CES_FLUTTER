@@ -18,31 +18,22 @@ class PlanRouteParcel extends StatelessWidget {
                 Text("Step 2 of 5"),
               ],
             ),
-            Row(children: const [
-              Text("Customer information"),
-              Spacer(),
+            Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
+              Text("Parcel information"),
             ]),
-            const TextField(
-              obscureText: false,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Customer ID',
-              ),
-            ),
-            Row(
-              children: [
-                TextButton(
-                  child: const Text('Create new user'),
-                  onPressed: () {
-                    Navigator.popAndPushNamed(
-                      context,
-                      '/createCustomer',
-                    );
-                  },
+            Row( children: const [
+              Text("Amount"),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 300.0,
+                  child:  TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(), hintText: "Add a number"),
+                  ),
                 ),
-                const Spacer(),
-              ],
-            ),
+              ),
+            ]),
             Row(children: [
               const Spacer(),
               ElevatedButton(

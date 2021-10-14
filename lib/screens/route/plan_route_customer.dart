@@ -15,7 +15,7 @@ class PlanRouteCustomer extends StatelessWidget {
               children: const [
                 Text("Plan a route"),
                 Spacer(),
-                Text("Step 2 of 5"),
+                Text("Step 1 of 5"),
               ],
             ),
             Row(children: const [
@@ -49,7 +49,7 @@ class PlanRouteCustomer extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      '/createCustomer',
+                      '/route2',
                     );
                   },
                   child: const Text("Next Step")),
