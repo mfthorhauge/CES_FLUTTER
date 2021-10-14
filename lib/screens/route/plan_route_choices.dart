@@ -16,6 +16,9 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
   Future<RouteSuggestion>? _futureCheapestRouteSuggestion;
   Future<RouteSuggestion>? _futureFastestRouteSuggestion;
 
+  bool isCheapestSelected = false;
+  bool isFastestSelected = false;
+
   @override
   void initState() {
     super.initState();
@@ -92,6 +95,7 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
         if (snapshot.hasData) {
           return PossibleRouteRow(
             routeSuggestion: snapshot.data,
+            isSelected: isFastestSelected,
           );
         }
         return const CircularProgressIndicator();
@@ -106,6 +110,7 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
         if (snapshot.hasData) {
           return PossibleRouteRow(
             routeSuggestion: snapshot.data,
+            isSelected: isCheapestSelected,
           );
         }
         return const CircularProgressIndicator();
@@ -114,18 +119,30 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
   }
 }
 
-class PossibleRouteRow extends StatelessWidget {
-  const PossibleRouteRow({Key? key, this.routeSuggestion}) : super(key: key);
+class PossibleRouteRow extends StatefulWidget {
+  const PossibleRouteRow(
+      {Key? key, this.routeSuggestion, required this.isSelected})
+      : super(key: key);
 
   final RouteSuggestion? routeSuggestion;
+  final bool isSelected;
 
   @override
+  State<PossibleRouteRow> createState() => _PossibleRouteRowState();
+}
+
+class _PossibleRouteRowState extends State<PossibleRouteRow> {
+  @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Text(routeSuggestion?.origin ?? ""),
-      Text(routeSuggestion?.destination ?? ""),
-      Text(routeSuggestion?.cost.toString() ?? ""),
-      Text(routeSuggestion?.duration.toString() ?? ""),
-    ]);
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(children: [
+        Text(widget.routeSuggestion?.origin ?? ""),
+        Text(widget.routeSuggestion?.destination ?? ""),
+        const Spacer(),
+        Text(widget.routeSuggestion?.cost.toString() ?? ""),
+        Text(widget.routeSuggestion?.duration.toString() ?? ""),
+      ]),
+    );
   }
 }

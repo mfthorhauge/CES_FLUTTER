@@ -157,7 +157,7 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  width: 300.0,
+                  width: 200.0,
                   child: TextField(
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
@@ -175,7 +175,7 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  width: 300.0,
+                  width: 200.0,
                   child: TextField(
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
@@ -193,7 +193,7 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  width: 300.0,
+                  width: 200.0,
                   child: TextField(
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly

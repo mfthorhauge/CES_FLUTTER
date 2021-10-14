@@ -46,33 +46,39 @@ class _PlanRouteCustomerState extends State<PlanRouteCustomer> {
                 ),
               ],
             ),
-            Row(children: const [
-              Text(
-                "Customer information",
-                style: TextStyle(
-                  fontSize: 20.0,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(children: const [
+                Text(
+                  "Customer information",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
                 ),
+                Spacer(),
+              ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 300,
+                    child: TextField(
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Customer ID',
+                        ),
+                        onChanged: (text) =>
+                            context.read<OrderService>().setCustomerId(text),
+                        keyboardType: TextInputType.number),
+                  ),
+                  const Spacer()
+                ],
               ),
-              Spacer(),
-            ]),
-            Row(
-              children: [
-                SizedBox(
-                  width: 300,
-                  child: TextField(
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ],
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Customer ID',
-                      ),
-                      onChanged: (text) =>
-                          context.read<OrderService>().setCustomerId(text),
-                      keyboardType: TextInputType.number),
-                ),
-                const Spacer()
-              ],
             ),
             Row(
               children: [
