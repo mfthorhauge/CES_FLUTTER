@@ -82,6 +82,7 @@ class PlanRouteConfirmation extends StatelessWidget {
             Row(children: [
               Container(
                 width: 300,
+                margin: const EdgeInsets.all(20.0),
                 padding: const EdgeInsets.all(20.0),
                 decoration: const BoxDecoration(
                   color: Colors.grey,
@@ -97,6 +98,7 @@ class PlanRouteConfirmation extends StatelessWidget {
               ),
               Container(
                 width: 300,
+                margin: const EdgeInsets.all(20.0),
                 padding: const EdgeInsets.all(20.0),
                 decoration: const BoxDecoration(
                   color: Colors.grey,
