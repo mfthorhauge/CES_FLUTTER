@@ -14,7 +14,7 @@ class TrackScreen extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(), isTrackPageOn: true,),
+      appBar: CustomAppBar(appBar: AppBar(), isTrackButtonDisabled: true,),
       body: Column(
         children: [
       const Text("Track a parcel"),

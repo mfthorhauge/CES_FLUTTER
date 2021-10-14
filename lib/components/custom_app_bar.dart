@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar(
-      {Key? key, required this.appBar, required this.isTrackPageOn})
+      {Key? key, required this.appBar, this.isTrackButtonDisabled = false, this.isPlanButtonDisabled = false})
       : super(key: key);
 
   final AppBar appBar;
-  final bool isTrackPageOn;
+  final bool isTrackButtonDisabled;
+  final bool isPlanButtonDisabled;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         TextButton(
             onPressed: () {
-              isTrackPageOn
+              !isPlanButtonDisabled
                   ? Navigator.popAndPushNamed(context, "/route1")
                   : null;
             },
@@ -24,7 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             )),
         TextButton(
             onPressed: () {
-              !isTrackPageOn
+              !isTrackButtonDisabled
                   ? Navigator.popAndPushNamed(context, "/track")
                   : null;
             },

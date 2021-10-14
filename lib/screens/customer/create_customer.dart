@@ -7,7 +7,7 @@ class CreateCustomer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(), isTrackPageOn: false,),
+      appBar: CustomAppBar(appBar: AppBar()),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         const Text("Create new customer"),

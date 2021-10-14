@@ -15,7 +15,7 @@ class PlanRouteChoices extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(), isTrackPageOn: false,),
+      appBar: CustomAppBar(appBar: AppBar(), isPlanButtonDisabled: true,),
       body: Column(
         children: const [
           Text ("Possible Routes"),

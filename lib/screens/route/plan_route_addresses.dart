@@ -7,7 +7,7 @@ class PlanRouteAddresses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(), isTrackPageOn: false,),
+      appBar: CustomAppBar(appBar: AppBar(), isPlanButtonDisabled: true,),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
