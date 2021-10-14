@@ -211,22 +211,28 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
             ]),
             Row(children: [
               const Spacer(),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(
-                      context,
-                    );
-                  },
-                  child: const Text("Back")),
-              ElevatedButton(
-                  onPressed: () {
-                    context.read<OrderService>().setParcel(parcel);
-                    Navigator.pushNamed(
-                      context,
-                      '/route3',
-                    );
-                  },
-                  child: const Text("Next Step")),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                      );
+                    },
+                    child: const Text("Back")),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      context.read<OrderService>().setParcel(parcel);
+                      Navigator.pushNamed(
+                        context,
+                        '/route3',
+                      );
+                    },
+                    child: const Text("Next Step")),
+              ),
             ]),
           ],
         ),

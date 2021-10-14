@@ -178,23 +178,29 @@ class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
             ]),
             Row(children: [
               const Spacer(),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(
-                      context,
-                    );
-                  },
-                  child: const Text("Back")),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                      );
+                    },
+                    child: const Text("Back")),
+              ),
               //TODO: Store origin and destination address
               //TODO: Pushing this button should call the calculate route method, the routes are displayed on the next page.
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/route4',
-                    );
-                  },
-                  child: const Text("Next Step")),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/route4',
+                      );
+                    },
+                    child: const Text("Next Step")),
+              ),
             ]),
           ],
         ),

@@ -58,21 +58,27 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
               buildFutureCheapestBuilder(),
               Row(children: [
                 const Spacer(),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(
-                        context,
-                      );
-                    },
-                    child: const Text("Back")),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        '/route5',
-                      );
-                    },
-                    child: const Text("Next Step")),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(
+                          context,
+                        );
+                      },
+                      child: const Text("Back")),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/route5',
+                        );
+                      },
+                      child: const Text("Next Step")),
+                ),
               ]),
             ],
           ),

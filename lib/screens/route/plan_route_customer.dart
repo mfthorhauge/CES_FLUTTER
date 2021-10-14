@@ -90,14 +90,17 @@ class _PlanRouteCustomerState extends State<PlanRouteCustomer> {
             ),
             Row(children: [
               const Spacer(),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/route2',
-                    );
-                  },
-                  child: const Text("Next Step")),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/route2',
+                      );
+                    },
+                    child: const Text("Next Step")),
+              ),
             ]),
           ],
         ),
