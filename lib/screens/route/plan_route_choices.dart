@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-enum PriceAdjustment { markup, discount }
-
-class PlanRouteParcel extends StatelessWidget {
-  const PlanRouteParcel({Key? key}) : super(key: key);
-  final PriceAdjustment? _adjustment = PriceAdjustment.markup;
+class PlanRouteChoices extends StatelessWidget {
+  const PlanRouteChoices({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,66 +15,14 @@ class PlanRouteParcel extends StatelessWidget {
               children: const [
                 Text("Plan a route"),
                 Spacer(),
-                Text("Step 2 of 5"),
+                Text("Step 4 of 5"),
               ],
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
-              Text("Parcel information"),
-            ]),
             Row(children: const [
-              Text("Amount"),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Add a number",
-                        labelText: "Amount"),
-                  ),
-                ),
-              ),
+              Text("Origin"),
+              Spacer(),
+              Text("Destination")
             ]),
-            //TODO: Need to connect with backend endpoint
-            Row(children: const [
-              Text("Category"),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "- Select a category - ",
-                        labelText: "Category"),
-                  ),
-                ),
-              ),
-            ]),
-            //TODO: Fix radio buttons for price adjustment.
-            /*Row( children: [
-              const Text("Price adjustment"),
-              ListTile(
-                title: const Text("Markup"),
-                leading: Radio<PriceAdjustment>(
-                  value: PriceAdjustment.markup,
-                  groupValue: _adjustment,
-                  onChanged: (PriceAdjustment? value) {
-                  },
-                ),
-              ),
-              ListTile(
-                title: const Text("Discount"),
-                leading: Radio<PriceAdjustment>(
-                  value: PriceAdjustment.discount,
-                  groupValue: _adjustment,
-                  onChanged: (PriceAdjustment? value) {
-                  },
-                ),
-              ),
-            ]),
-            */
             Row(children: const [
               Padding(
                 padding: EdgeInsets.all(8.0),
@@ -86,14 +31,26 @@ class PlanRouteParcel extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: "Add a number",
-                        labelText: "Number"),
+                        hintText: "Sender",
+                        labelText: "Sender"),
+                  ),
+                ),
+              ),
+              Spacer(),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 300.0,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "Receiver",
+                        labelText: "Receiver"),
                   ),
                 ),
               ),
             ]),
             Row(children: const [
-              Text("Weight"),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
@@ -101,14 +58,26 @@ class PlanRouteParcel extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: "Grams",
-                        labelText: "Weight"),
+                        hintText: "Address",
+                        labelText: "Address"),
+                  ),
+                ),
+              ),
+              Spacer(),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 300.0,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "Address",
+                        labelText: "Address"),
                   ),
                 ),
               ),
             ]),
             Row(children: const [
-              Text("Size"),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
@@ -116,11 +85,12 @@ class PlanRouteParcel extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: "Length in meters",
-                        labelText: "Length"),
+                        hintText: "Postcode",
+                        labelText: "Postcode"),
                   ),
                 ),
               ),
+              Spacer(),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
@@ -128,24 +98,41 @@ class PlanRouteParcel extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: "Width in meters",
-                        labelText: "Width"),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 300.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Height in meters",
-                        labelText: "Height"),
+                        hintText: "Postcode",
+                        labelText: "Postcode"),
                   ),
                 ),
               ),
             ]),
+            //TODO: These two boxes should be dropdown menues based on the city entities.
+            Row(children: const [
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 300.0,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "- Select a city -",
+                        labelText: "City"),
+                  ),
+                ),
+              ),
+              Spacer(),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 300.0,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "- Select a city -",
+                        labelText: "City"),
+                  ),
+                ),
+              ),
+            ]),
+            //TODO: Same as billing address import for information fields in form. Needs extra endpoint.
             Row(children: [
               const Spacer(),
               ElevatedButton(
@@ -159,7 +146,7 @@ class PlanRouteParcel extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      '/route3',
+                      '/route2',
                     );
                   },
                   child: const Text("Next Step")),

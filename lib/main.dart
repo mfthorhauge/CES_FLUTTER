@@ -36,6 +36,11 @@ class MyApp extends StatelessWidget {
             builder: (context) => const PlanRouteAddresses(),
           );
         }
+        if (settings.name == '/route4') {
+          return MaterialPageRoute(
+            builder: (context) => const PlanRouteAddresses(),
+          );
+        }
         if (settings.name == '/track') {
           return MaterialPageRoute(
             builder: (context) => const TrackScreen(),
