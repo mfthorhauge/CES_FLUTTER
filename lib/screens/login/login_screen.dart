@@ -11,14 +11,14 @@ class LoginScreen extends StatelessWidget {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           const Text("Login", style: TextStyle(fontWeight: FontWeight.bold)),
           const SizedBox(
-              width: 100.0,
+              width: 300.0,
               child:  TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(), hintText: 'User Id'),
               ),
           ),
           const SizedBox(
-            width: 100.0,
+            width: 300.0,
             child:  TextField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(), hintText: 'Password'),
