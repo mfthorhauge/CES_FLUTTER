@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:telco_web_client/screens/track/track_screen.dart';
 
-import 'screens/login_screen.dart';
+import 'screens/login/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
