@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
+import 'package:telco_web_client/model/parcel.dart';
 
 enum PriceAdjustment { markup, discount }
 
-//TODO: Should import into order.dart object
-class PlanRouteParcel extends StatelessWidget {
+class PlanRouteParcel extends StatefulWidget {
   const PlanRouteParcel({Key? key}) : super(key: key);
+
+  @override
+  _PlanRouteParcelState createState() => _PlanRouteParcelState();
+}
+
+class _PlanRouteParcelState extends State<PlanRouteParcel> {
+  Parcel parcel = Parcel(0, "", 0, 0, 0, 0);
+
   final PriceAdjustment? _adjustment = PriceAdjustment.markup;
 
   @override
@@ -37,14 +45,17 @@ class PlanRouteParcel extends StatelessWidget {
             Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
               Text("Parcel information"),
             ]),
-            Row(children: const [
-              Text("Amount"),
+            Row(children: [
+              const Text("Amount"),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
                   child: TextField(
-                    decoration: InputDecoration(
+                    onChanged: (text) {
+                      parcel.amount = text;
+                    },
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "Add a number",
                         labelText: "Amount"),
