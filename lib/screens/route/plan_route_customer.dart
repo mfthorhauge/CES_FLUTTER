@@ -7,20 +7,40 @@ class PlanRouteCustomer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(), isPlanButtonDisabled: true,),
-      body: Center(
+      appBar: CustomAppBar(
+        appBar: AppBar(),
+        isPlanButtonDisabled: true,
+      ),
+      body: Container(
+        margin: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(30.0),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: const BorderRadius.all(Radius.circular(12))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
               children: const [
-                Text("Plan a route"),
+                Text(
+                  "Plan a route",
+                  style: TextStyle(
+                    fontSize: 32.0,
+                  ),
+                ),
                 Spacer(),
-                Text("Step 1 of 5"),
+                Text("Step 1 of 5",
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    color: Colors.grey
+                  ),
+                ),
               ],
             ),
             Row(children: const [
-              Text("Customer information"),
+              Text("Customer information", style: TextStyle(
+                fontSize: 20.0,
+              ),),
               Spacer(),
             ]),
             const TextField(
