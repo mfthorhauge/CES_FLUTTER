@@ -26,7 +26,10 @@ class PlanRouteParcel extends StatelessWidget {
           children: [
             Row(
               children: const [
-                Text("Plan a route"),
+                Text("Plan a route",
+                    style: TextStyle(
+                      fontSize: 32.0,
+                    )),
                 Spacer(),
                 Text("Step 2 of 5"),
               ],

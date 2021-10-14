@@ -31,7 +31,10 @@ class PlanRouteSuccess extends StatelessWidget {
                     size: 30.0,
                   ),
                   const Text(
-                      "All parcel information has been received successfully!"),
+                      "All parcel information has been received successfully!",
+                      style: TextStyle(
+                        fontSize: 32.0,
+                      )),
                   Row(children: [
                     const Spacer(),
                     ElevatedButton(

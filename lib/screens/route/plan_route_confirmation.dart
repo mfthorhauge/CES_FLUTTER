@@ -25,7 +25,10 @@ class PlanRouteConfirmation extends StatelessWidget {
           children: [
             Row(
               children: const [
-                Text("Plan a route"),
+                Text("Plan a route",
+                    style: TextStyle(
+                      fontSize: 32.0,
+                    )),
                 Spacer(),
                 Text("Step 5 of 5"),
               ],
