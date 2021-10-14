@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:telco_web_client/screens/Route/plan_route_customer.dart';
+import 'package:telco_web_client/screens/route/plan_route_customer.dart';
 import 'package:telco_web_client/screens/route/plan_route_parcel.dart';
 import 'package:telco_web_client/screens/track/track_screen.dart';
 
