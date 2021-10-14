@@ -1,6 +1,6 @@
-# telco_web_client
+# telstar_web_client
 
-Telco company web client
+Telstar company web client
 
 ## Getting Started
 

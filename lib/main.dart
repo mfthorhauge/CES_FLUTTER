@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Telco app',
+      title: 'Telstar app',
       onGenerateRoute: (settings) {
         // Handle '/'
         if (settings.name == '/route1') {

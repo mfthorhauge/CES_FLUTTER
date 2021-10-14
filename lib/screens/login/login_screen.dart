@@ -9,22 +9,33 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const TextField(
-            decoration: InputDecoration(
-                border: OutlineInputBorder(), hintText: 'User Id'),
+          const Text("Login", style: TextStyle(fontWeight: FontWeight.bold)),
+          const SizedBox(
+              width: 100.0,
+              child:  TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(), hintText: 'User Id'),
+              ),
           ),
-          const TextField(
-            decoration: InputDecoration(
-                border: OutlineInputBorder(), hintText: 'Password'),
+          const SizedBox(
+            width: 100.0,
+            child:  TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Password'),
+            ),
           ),
-          TextButton(
-            child: const Text('Login'),
+          ElevatedButton(
             onPressed: () {
               Navigator.pushNamed(
                 context,
                 '/route1',
               );
             },
+            child: const Text('Login'),
+          ),
+          TextButton(
+            child: const Text('Create Account'),
+            onPressed: () {},
           ),
         ]),
       ),
