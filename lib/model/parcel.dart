@@ -3,9 +3,10 @@ class Parcel {
   String category;
   int priceAdjustment;
   int weight;
+  int length;
   int width;
   int height;
 
   Parcel(this.amount, this.category, this.priceAdjustment, this.weight,
-      this.width, this.height);
+      this.length, this.width, this.height);
 }

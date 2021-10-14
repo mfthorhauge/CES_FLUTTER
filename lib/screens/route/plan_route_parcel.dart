@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
 import 'package:telco_web_client/model/parcel.dart';
 
@@ -12,7 +13,7 @@ class PlanRouteParcel extends StatefulWidget {
 }
 
 class _PlanRouteParcelState extends State<PlanRouteParcel> {
-  Parcel parcel = Parcel(0, "", 0, 0, 0, 0);
+  Parcel parcel = Parcel(0, "", 0, 0, 0, 0, 0);
 
   final PriceAdjustment? _adjustment = PriceAdjustment.markup;
 
@@ -52,8 +53,11 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
                 child: SizedBox(
                   width: 300.0,
                   child: TextField(
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
                     onChanged: (text) {
-                      parcel.amount = text;
+                      parcel.amount = int.tryParse(text) ?? 0;
                     },
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
@@ -102,28 +106,40 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
               ),
             ]),
             */
-            Row(children: const [
+            Row(children: [
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
                   child: TextField(
-                    decoration: InputDecoration(
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    onChanged: (text) {
+                      parcel.priceAdjustment = int.tryParse(text) ?? 0;
+                    },
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: "Add a number",
+                        hintText: "Add a price adjustment",
                         labelText: "Number"),
                   ),
                 ),
               ),
             ]),
-            Row(children: const [
-              Text("Weight"),
+            Row(children: [
+              const Text("Weight"),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
                   child: TextField(
-                    decoration: InputDecoration(
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    onChanged: (text) {
+                      parcel.weight = int.tryParse(text) ?? 0;
+                    },
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "Grams",
                         labelText: "Weight"),
@@ -131,14 +147,20 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
                 ),
               ),
             ]),
-            Row(children: const [
-              Text("Size"),
+            Row(children: [
+              const Text("Size"),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
                   child: TextField(
-                    decoration: InputDecoration(
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    onChanged: (text) {
+                      parcel.length = int.tryParse(text) ?? 0;
+                    },
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "Length in meters",
                         labelText: "Length"),
@@ -146,11 +168,17 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
                   child: TextField(
-                    decoration: InputDecoration(
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    onChanged: (text) {
+                      parcel.width = int.tryParse(text) ?? 0;
+                    },
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "Width in meters",
                         labelText: "Width"),
@@ -158,11 +186,17 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 300.0,
                   child: TextField(
-                    decoration: InputDecoration(
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    onChanged: (text) {
+                      parcel.height = int.tryParse(text) ?? 0;
+                    },
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "Height in meters",
                         labelText: "Height"),
