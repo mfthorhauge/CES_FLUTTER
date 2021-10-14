@@ -32,7 +32,9 @@ class PlanRouteParcel extends StatelessWidget {
                   width: 300.0,
                   child: TextField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: "Add a number"),
+                        border: OutlineInputBorder(),
+                        hintText: "Add a number",
+                        labelText: "Amount"),
                   ),
                 ),
               ),
@@ -47,7 +49,8 @@ class PlanRouteParcel extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: "- Select a category - "),
+                        hintText: "- Select a category - ",
+                        labelText: "Category"),
                   ),
                 ),
               ),
@@ -82,7 +85,9 @@ class PlanRouteParcel extends StatelessWidget {
                   width: 300.0,
                   child: TextField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: "Add a number"),
+                        border: OutlineInputBorder(),
+                        hintText: "Add a number",
+                        labelText: "Number"),
                   ),
                 ),
               ),
@@ -95,7 +100,9 @@ class PlanRouteParcel extends StatelessWidget {
                   width: 300.0,
                   child: TextField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: "Grams"),
+                        border: OutlineInputBorder(),
+                        hintText: "Grams",
+                        labelText: "Weight"),
                   ),
                 ),
               ),
@@ -108,7 +115,9 @@ class PlanRouteParcel extends StatelessWidget {
                   width: 300.0,
                   child: TextField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: "Length"),
+                        border: OutlineInputBorder(),
+                        hintText: "Length in meters",
+                        labelText: "Length"),
                   ),
                 ),
               ),
@@ -118,7 +127,9 @@ class PlanRouteParcel extends StatelessWidget {
                   width: 300.0,
                   child: TextField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: "Width"),
+                        border: OutlineInputBorder(),
+                        hintText: "Width in meters",
+                        labelText: "Width"),
                   ),
                 ),
               ),
@@ -128,13 +139,22 @@ class PlanRouteParcel extends StatelessWidget {
                   width: 300.0,
                   child: TextField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: "Height"),
+                        border: OutlineInputBorder(),
+                        hintText: "Height in meters",
+                        labelText: "Height"),
                   ),
                 ),
               ),
             ]),
             Row(children: [
               const Spacer(),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(
+                      context,
+                    );
+                  },
+                  child: const Text("Back")),
               ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(

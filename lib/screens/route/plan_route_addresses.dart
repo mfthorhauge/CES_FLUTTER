@@ -137,6 +137,13 @@ class PlanRouteAddresses extends StatelessWidget {
               const Spacer(),
               ElevatedButton(
                   onPressed: () {
+                    Navigator.pop(
+                      context,
+                    );
+                  },
+                  child: const Text("Back")),
+              ElevatedButton(
+                  onPressed: () {
                     Navigator.pushNamed(
                       context,
                       '/route2',
