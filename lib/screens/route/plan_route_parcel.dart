@@ -10,7 +10,7 @@ class PlanRouteParcel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(),),      body: Center(
+      appBar: CustomAppBar(appBar: AppBar(), isTrackPageOn: false,),      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

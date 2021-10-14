@@ -13,7 +13,7 @@ class TrackScreen extends StatelessWidget {
       10, (i) => Parcel("customer X", "origin", "destination", "10", "ABC", "done", "done")
     );
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(),),
+      appBar: CustomAppBar(appBar: AppBar(), isTrackPageOn: true,),
       body: Column(
         children: [
       const Text("Track a parcel"),
