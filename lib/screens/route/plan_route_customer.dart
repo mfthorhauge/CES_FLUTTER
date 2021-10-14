@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
 import 'package:telco_web_client/model/customer.dart';
+import 'package:telco_web_client/screens/provider/parcel_service.dart';
 
 class PlanRouteCustomer extends StatefulWidget {
   const PlanRouteCustomer({Key? key}) : super(key: key);
@@ -8,6 +11,7 @@ class PlanRouteCustomer extends StatefulWidget {
   @override
   _PlanRouteCustomerState createState() => _PlanRouteCustomerState();
 }
+
 class _PlanRouteCustomerState extends State<PlanRouteCustomer> {
   Customer customer = Customer(0, "", "", "", "", "");
 
@@ -36,33 +40,38 @@ class _PlanRouteCustomerState extends State<PlanRouteCustomer> {
                   ),
                 ),
                 Spacer(),
-                Text("Step 1 of 5",
-                  style: TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.grey
-                  ),
+                Text(
+                  "Step 1 of 5",
+                  style: TextStyle(fontSize: 24.0, color: Colors.grey),
                 ),
               ],
             ),
             Row(children: const [
-              Text("Customer information", style: TextStyle(
-                fontSize: 20.0,
-              ),),
+              Text(
+                "Customer information",
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
               Spacer(),
             ]),
             Row(
-              children: const [
+              children: [
                 SizedBox(
                   width: 300,
                   child: TextField(
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Customer ID',
-                    ),
-                  ),
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Customer ID',
+                      ),
+                      onChanged: (text) =>
+                          context.read<ParcelService>().setCustomerId(text),
+                      keyboardType: TextInputType.number),
                 ),
-                Spacer()
+                const Spacer()
               ],
             ),
             Row(
