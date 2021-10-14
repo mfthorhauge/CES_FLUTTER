@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
 import 'package:telco_web_client/model/customer.dart';
-import 'package:telco_web_client/screens/provider/parcel_service.dart';
+import 'package:telco_web_client/provider/order_service.dart';
 
 class PlanRouteCustomer extends StatefulWidget {
   const PlanRouteCustomer({Key? key}) : super(key: key);
@@ -68,7 +68,7 @@ class _PlanRouteCustomerState extends State<PlanRouteCustomer> {
                         labelText: 'Customer ID',
                       ),
                       onChanged: (text) =>
-                          context.read<ParcelService>().setCustomerId(text),
+                          context.read<OrderService>().setCustomerId(text),
                       keyboardType: TextInputType.number),
                 ),
                 const Spacer()
