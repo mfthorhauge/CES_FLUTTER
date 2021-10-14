@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:telco_web_client/model/customer.dart';
 
-class ParcelService with ChangeNotifier {
+class OrderService with ChangeNotifier {
   Customer customer = Customer(0, "", "", "", "", "");
 
   void setCustomerId(String newValue) {

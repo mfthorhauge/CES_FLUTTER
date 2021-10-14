@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:telco_web_client/provider/order_service.dart';
 import 'package:telco_web_client/screens/customer/create_customer.dart';
-import 'package:telco_web_client/screens/provider/parcel_service.dart';
 import 'package:telco_web_client/screens/route/plan_route_addresses.dart';
 import 'package:telco_web_client/screens/route/plan_route_choices.dart';
 import 'package:telco_web_client/screens/route/plan_route_confirmation.dart';
@@ -16,7 +16,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ParcelService()),
+        ChangeNotifierProvider(create: (_) => OrderService()),
       ],
       child: const MyApp(),
     ),
