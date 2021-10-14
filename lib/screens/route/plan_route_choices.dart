@@ -8,18 +8,23 @@ class PlanRouteChoices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     //TODO: Create  list of possible routes based on calculation endpoint.
-    final items = List<RouteSuggestion>.generate(
-        10, (i) => RouteSuggestion("origin", "Destination", "Duration", "Cost")
-    );
+    final items = List<RouteSuggestion>.generate(10,
+        (i) => RouteSuggestion("origin", "Destination", "Duration", "Cost"));
 
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(), isPlanButtonDisabled: true,),
+      appBar: CustomAppBar(
+        appBar: AppBar(), isPlanButtonDisabled: true,),
       body: Column(
-        children: const [
-          Text ("Possible Routes"),
-
+        children: [
+          Row(
+            children: const [
+              Text("Plan a route"),
+              Spacer(),
+              Text("Step 4 of 5"),
+            ],
+          ),
+          Text("Route options"),
           // ListView.builder(
           //   itemCount: items.length,
           //   itemBuilder: (context, index) {
@@ -27,14 +32,33 @@ class PlanRouteChoices extends StatelessWidget {
           //     return TrackListRow(parcel: item);
           //   },
           // )
-          ],
-        ),
-      );
+          Row(children: [
+            const Spacer(),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(
+                    context,
+                  );
+                },
+                child: const Text("Back")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/route5',
+                  );
+                },
+                child: const Text("Next Step")),
+          ]),
+        ],
+      ),
+    );
   }
 }
 
 class PossibleRouteRow extends StatelessWidget {
-  const PossibleRouteRow({Key? key, required this.routeSuggestion}) : super(key: key);
+  const PossibleRouteRow({Key? key, required this.routeSuggestion})
+      : super(key: key);
 
   final RouteSuggestion routeSuggestion;
 
