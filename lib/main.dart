@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telco_web_client/screens/route/plan_route_addresses.dart';
 import 'package:telco_web_client/screens/route/plan_route_customer.dart';
 import 'package:telco_web_client/screens/route/plan_route_parcel.dart';
 import 'package:telco_web_client/screens/track/track_screen.dart';
@@ -28,6 +29,11 @@ class MyApp extends StatelessWidget {
         if (settings.name == '/route2') {
           return MaterialPageRoute(
             builder: (context) => const PlanRouteParcel(),
+          );
+        }
+        if (settings.name == '/route3') {
+          return MaterialPageRoute(
+            builder: (context) => const PlanRouteAddresses(),
           );
         }
         if (settings.name == '/track') {

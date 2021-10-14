@@ -139,7 +139,7 @@ class PlanRouteParcel extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      '/createCustomer',
+                      '/route3',
                     );
                   },
                   child: const Text("Next Step")),
