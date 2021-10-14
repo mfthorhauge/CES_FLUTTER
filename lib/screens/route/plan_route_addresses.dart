@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
 import 'package:telco_web_client/model/address.dart';
-import 'package:telco_web_client/provider/order_service.dart';
 
 class PlanRouteAddresses extends StatefulWidget {
   const PlanRouteAddresses({Key? key}) : super(key: key);
@@ -188,7 +186,6 @@ class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
               //TODO: Pushing this button should call the calculate route method, the routes are displayed on the next page.
               ElevatedButton(
                   onPressed: () {
-                    context.read<OrderService>().findCheapestRoute();
                     Navigator.pushNamed(
                       context,
                       '/route4',

@@ -1,10 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
 import 'package:telco_web_client/model/route_suggestion.dart';
+import 'package:telco_web_client/provider/order_service.dart';
 
 //TODO: Should make a list that display atleast 1 possible route and maximum of three routes
-class PlanRouteChoices extends StatelessWidget {
+class PlanRouteChoices extends StatefulWidget {
   const PlanRouteChoices({Key? key}) : super(key: key);
+
+  @override
+  State<PlanRouteChoices> createState() => _PlanRouteChoicesState();
+}
+
+class _PlanRouteChoicesState extends State<PlanRouteChoices> {
+  Future<RouteSuggestion>? _futureCheapestRouteSuggestion;
+  Future<RouteSuggestion>? _futureFastestRouteSuggestion;
+
+  @override
+  void initState() {
+    super.initState();
+    _futureCheapestRouteSuggestion =
+        context.read<OrderService>().findCheapestRoute();
+    _futureFastestRouteSuggestion =
+        context.read<OrderService>().findFastestRoute();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +50,9 @@ class PlanRouteChoices extends StatelessWidget {
                   Text("Step 4 of 5"),
                 ],
               ),
-              Text("Route options"),
-              // ListView.builder(
-              //   itemCount: items.length,
-              //   itemBuilder: (context, index) {
-              //     final item = items[index];
-              //     return TrackListRow(parcel: item);
-              //   },
-              // )
+              const Text("Route options"),
+              buildFutureFastestBuilder(),
+              buildFutureCheapestBuilder(),
               Row(children: [
                 const Spacer(),
                 ElevatedButton(
@@ -61,21 +75,48 @@ class PlanRouteChoices extends StatelessWidget {
           ),
         ));
   }
+
+  FutureBuilder<RouteSuggestion> buildFutureFastestBuilder() {
+    return FutureBuilder<RouteSuggestion>(
+      future: _futureFastestRouteSuggestion,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return PossibleRouteRow(
+            routeSuggestion: snapshot.data,
+          );
+        }
+        return const CircularProgressIndicator();
+      },
+    );
+  }
+
+  FutureBuilder<RouteSuggestion> buildFutureCheapestBuilder() {
+    return FutureBuilder<RouteSuggestion>(
+      future: _futureCheapestRouteSuggestion,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return PossibleRouteRow(
+            routeSuggestion: snapshot.data,
+          );
+        }
+        return const CircularProgressIndicator();
+      },
+    );
+  }
 }
 
 class PossibleRouteRow extends StatelessWidget {
-  const PossibleRouteRow({Key? key, required this.routeSuggestion})
-      : super(key: key);
+  const PossibleRouteRow({Key? key, this.routeSuggestion}) : super(key: key);
 
-  final RouteSuggestion routeSuggestion;
+  final RouteSuggestion? routeSuggestion;
 
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      Text(routeSuggestion.origin),
-      Text(routeSuggestion.destination),
-      Text(routeSuggestion.cost.toString()),
-      Text(routeSuggestion.duration.toString()),
+      Text(routeSuggestion?.origin ?? ""),
+      Text(routeSuggestion?.destination ?? ""),
+      Text(routeSuggestion?.cost.toString() ?? ""),
+      Text(routeSuggestion?.duration.toString() ?? ""),
     ]);
   }
 }

@@ -9,6 +9,8 @@ import 'package:telco_web_client/model/route_suggestion.dart';
 class OrderService with ChangeNotifier {
   Customer customer = Customer(0, "", "", "", "", "");
   Parcel parcel = Parcel(0, "", 0, 0, 0, 0, 0);
+  Future<RouteSuggestion>? cheapestRouteSuggestion;
+  Future<RouteSuggestion>? fastestRouteSuggestion;
 
   void setCustomerId(String newValue) {
     customer.id = int.tryParse(newValue) ?? 0;
@@ -31,6 +33,45 @@ class OrderService with ChangeNotifier {
     final response = await http.post(
       Uri.parse(
           'http://wa-tl-t1.azurewebsites.net:80/routes/findCheapestRoute'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'CityFrom': "test",
+        'CityTo': "test",
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      return RouteSuggestion.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to parse route.');
+    }
+  }
+
+  Future<RouteSuggestion> findFastestRoute() async {
+    final response = await http.post(
+      Uri.parse(
+          'http://wa-tl-t1.azurewebsites.net:80/routes/findShortestRoute'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'CityFrom': "test",
+        'CityTo': "test",
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      return RouteSuggestion.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to parse route.');
+    }
+  }
+
+  Future<RouteSuggestion> getCities() async {
+    final response = await http.post(
+      Uri.parse('http://wa-tl-t1.azurewebsites.net:80/routes/findFastestRoute'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
