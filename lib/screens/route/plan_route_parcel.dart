@@ -42,7 +42,10 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
                       fontSize: 32.0,
                     )),
                 Spacer(),
-                Text("Step 2 of 5"),
+                Text(
+                  "Step 2 of 5",
+                  style: TextStyle(fontSize: 24.0, color: Colors.grey),
+                ),
               ],
             ),
             Row(mainAxisAlignment: MainAxisAlignment.start, children: const [

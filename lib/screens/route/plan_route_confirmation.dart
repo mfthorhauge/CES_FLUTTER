@@ -30,7 +30,10 @@ class PlanRouteConfirmation extends StatelessWidget {
                       fontSize: 32.0,
                     )),
                 Spacer(),
-                Text("Step 5 of 5"),
+                Text(
+                  "Step 5 of 5",
+                  style: TextStyle(fontSize: 24.0, color: Colors.grey),
+                ),
               ],
             ),
             const Text("Customer information"),

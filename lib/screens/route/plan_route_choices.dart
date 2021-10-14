@@ -47,7 +47,10 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
                         fontSize: 32.0,
                       )),
                   Spacer(),
-                  Text("Step 4 of 5"),
+                  Text(
+                    "Step 4 of 5",
+                    style: TextStyle(fontSize: 24.0, color: Colors.grey),
+                  ),
                 ],
               ),
               const Text("Route options"),

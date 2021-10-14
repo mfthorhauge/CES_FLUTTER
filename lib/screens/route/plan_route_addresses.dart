@@ -36,7 +36,10 @@ class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
                       fontSize: 32.0,
                     )),
                 Spacer(),
-                Text("Step 3 of 5"),
+                Text(
+                  "Step 3 of 5",
+                  style: TextStyle(fontSize: 24.0, color: Colors.grey),
+                ),
               ],
             ),
             Row(children: [

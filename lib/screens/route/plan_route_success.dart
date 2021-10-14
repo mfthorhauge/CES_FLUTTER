@@ -14,7 +14,20 @@ class PlanRouteSuccess extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const Text("Plan a route"),
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Row(
+                children: const [
+                  Text(
+                    "Plan a route",
+                    style: TextStyle(
+                      fontSize: 32.0,
+                    ),
+                  ),
+                  Spacer()
+                ],
+              ),
+            ),
             Container(
               margin: const EdgeInsets.all(30.0),
               padding: const EdgeInsets.all(30.0),
@@ -37,16 +50,22 @@ class PlanRouteSuccess extends StatelessWidget {
                       )),
                   Row(children: [
                     const Spacer(),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, "/track");
-                        },
-                        child: const Text("Track Parcel")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, "/route1");
-                        },
-                        child: const Text("Add new parcel")),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/track");
+                          },
+                          child: const Text("Track Parcel")),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/route1");
+                          },
+                          child: const Text("Add new parcel")),
+                    ),
                     const Spacer(),
                   ]),
                 ],
