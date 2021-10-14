@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/src/provider.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
 import 'package:telco_web_client/model/parcel.dart';
+import 'package:telco_web_client/provider/order_service.dart';
 
 enum PriceAdjustment { markup, discount }
 
@@ -215,6 +217,7 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
                   child: const Text("Back")),
               ElevatedButton(
                   onPressed: () {
+                    context.read<OrderService>().setParcel(parcel);
                     Navigator.pushNamed(
                       context,
                       '/route3',
