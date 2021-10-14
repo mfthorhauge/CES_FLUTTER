@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
+import 'package:telco_web_client/model/address.dart';
 
-class PlanRouteAddresses extends StatelessWidget {
+class PlanRouteAddresses extends StatefulWidget {
   const PlanRouteAddresses({Key? key}) : super(key: key);
+
+  @override
+  _PlanRouteAddressesState createState() => _PlanRouteAddressesState();
+}
+
+class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
+  final Address destinationAddress = Address("", "", "", "");
+  final Address originAddress = Address("", "", "", "");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(), isPlanButtonDisabled: true,),
+      appBar: CustomAppBar(
+        appBar: AppBar(),
+        isPlanButtonDisabled: true,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -21,15 +33,17 @@ class PlanRouteAddresses extends StatelessWidget {
             ),
             Row(children: [
               const Spacer(),
-              //TODO: origin address
-              Column(children: const [
-                Text("Origin"),
+              Column(children: [
+                const Text("Origin"),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 300.0,
                     child: TextField(
-                      decoration: InputDecoration(
+                      onChanged: (text) {
+                        originAddress.name = text;
+                      },
+                      decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: "Sender",
                           labelText: "Name"),
@@ -37,11 +51,14 @@ class PlanRouteAddresses extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 300.0,
                     child: TextField(
-                      decoration: InputDecoration(
+                      onChanged: (text) {
+                        originAddress.address = text;
+                      },
+                      decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: "Address",
                           labelText: "Address"),
@@ -49,11 +66,14 @@ class PlanRouteAddresses extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 300.0,
                     child: TextField(
-                      decoration: InputDecoration(
+                      onChanged: (text) {
+                        originAddress.city = text;
+                      },
+                      decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: "- Select a city -",
                           labelText: "City"),
@@ -61,11 +81,14 @@ class PlanRouteAddresses extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 300.0,
                     child: TextField(
-                      decoration: InputDecoration(
+                      onChanged: (text) {
+                        originAddress.country = text;
+                      },
+                      decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: "Country",
                           labelText: "Country"),
@@ -73,14 +96,17 @@ class PlanRouteAddresses extends StatelessWidget {
                   ),
                 ),
               ]),
-              Column(children: const [
-                Text("Destination"),
+              Column(children: [
+                const Text("Destination"),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 300.0,
                     child: TextField(
-                      decoration: InputDecoration(
+                      onChanged: (text) {
+                        destinationAddress.name = text;
+                      },
+                      decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: "Receiver",
                           labelText: "Name"),
@@ -88,11 +114,14 @@ class PlanRouteAddresses extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 300.0,
                     child: TextField(
-                      decoration: InputDecoration(
+                      onChanged: (text) {
+                        destinationAddress.address = text;
+                      },
+                      decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: "Address",
                           labelText: "Address"),
@@ -100,11 +129,14 @@ class PlanRouteAddresses extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 300.0,
                     child: TextField(
-                      decoration: InputDecoration(
+                      onChanged: (text) {
+                        destinationAddress.city = text;
+                      },
+                      decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: "- Select a city -",
                           labelText: "City"),
@@ -112,11 +144,14 @@ class PlanRouteAddresses extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     width: 300.0,
                     child: TextField(
-                      decoration: InputDecoration(
+                      onChanged: (text) {
+                        destinationAddress.country = text;
+                      },
+                      decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: "Country",
                           labelText: "Country"),
@@ -127,8 +162,8 @@ class PlanRouteAddresses extends StatelessWidget {
 
               const Spacer(),
               Column(
-                  //TODO: Use imported customer object to create information in panel
-                  ),
+                //TODO: Use imported customer object to create information in panel
+              ),
               const Spacer(),
             ]),
             Row(children: [
@@ -140,6 +175,7 @@ class PlanRouteAddresses extends StatelessWidget {
                     );
                   },
                   child: const Text("Back")),
+              //TODO: Store origin and destination address
               //TODO: Pushing this button should call the calculate route method, the routes are displayed on the next page.
               ElevatedButton(
                   onPressed: () {
