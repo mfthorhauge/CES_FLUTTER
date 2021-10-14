@@ -40,6 +40,24 @@ class OrderService with ChangeNotifier {
     print("Priceadjustement: " + (parcel.priceAdjustment.toString()));
   }
 
+  void setOrigin(Address address) {
+    origin = address;
+    notifyListeners();
+    print("Origin name: " + (origin.name));
+    print("Origin address: " + (origin.address));
+    print("Origin city: " + (origin.city));
+    print("Origin country: " + (origin.country));
+  }
+
+  void setDestion(Address address) {
+    destination = address;
+    notifyListeners();
+    print("Destination name: " + (destination.name));
+    print("Destination address: " + (destination.address));
+    print("Destination city: " + (destination.city));
+    print("Destination country: " + (destination.country));
+  }
+
   Future<RouteSuggestion> findCheapestRoute() async {
     final response = await http.post(
       Uri.parse(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
 import 'package:telco_web_client/model/address.dart';
+import 'package:telco_web_client/provider/order_service.dart';
 
 class PlanRouteAddresses extends StatefulWidget {
   const PlanRouteAddresses({Key? key}) : super(key: key);
@@ -194,6 +196,10 @@ class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
                     onPressed: () {
+                      context.read<OrderService>().setOrigin(originAddress);
+                      context
+                          .read<OrderService>()
+                          .setDestion(destinationAddress);
                       Navigator.pushNamed(
                         context,
                         '/route4',
