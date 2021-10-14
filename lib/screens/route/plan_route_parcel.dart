@@ -11,8 +11,16 @@ class PlanRouteParcel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(), isPlanButtonDisabled: true,),
-      body: Center(
+      appBar: CustomAppBar(
+        appBar: AppBar(),
+        isPlanButtonDisabled: true,
+      ),
+      body: Container(
+        margin: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(30.0),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: const BorderRadius.all(Radius.circular(12))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

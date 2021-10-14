@@ -14,7 +14,12 @@ class PlanRouteConfirmation extends StatelessWidget {
         appBar: AppBar(),
         isPlanButtonDisabled: true,
       ),
-      body: Center(
+      body: Container(
+        margin: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(30.0),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: const BorderRadius.all(Radius.circular(12))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -80,5 +85,3 @@ class PlanRouteConfirmation extends StatelessWidget {
     );
   }
 }
-
-

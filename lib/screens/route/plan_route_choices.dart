@@ -13,46 +13,54 @@ class PlanRouteChoices extends StatelessWidget {
         (i) => RouteSuggestion("origin", "Destination", "Duration", "Cost"));
 
     return Scaffold(
-      appBar: CustomAppBar(
-        appBar: AppBar(), isPlanButtonDisabled: true,),
-      body: Column(
-        children: [
-          Row(
-            children: const [
-              Text("Plan a route"),
-              Spacer(),
-              Text("Step 4 of 5"),
+        appBar: CustomAppBar(
+          appBar: AppBar(),
+          isPlanButtonDisabled: true,
+        ),
+        body: Container(
+          margin: const EdgeInsets.all(30.0),
+          padding: const EdgeInsets.all(30.0),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              borderRadius: const BorderRadius.all(Radius.circular(12))),
+          child: Column(
+            children: [
+              Row(
+                children: const [
+                  Text("Plan a route"),
+                  Spacer(),
+                  Text("Step 4 of 5"),
+                ],
+              ),
+              Text("Route options"),
+              // ListView.builder(
+              //   itemCount: items.length,
+              //   itemBuilder: (context, index) {
+              //     final item = items[index];
+              //     return TrackListRow(parcel: item);
+              //   },
+              // )
+              Row(children: [
+                const Spacer(),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                      );
+                    },
+                    child: const Text("Back")),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/route5',
+                      );
+                    },
+                    child: const Text("Next Step")),
+              ]),
             ],
           ),
-          Text("Route options"),
-          // ListView.builder(
-          //   itemCount: items.length,
-          //   itemBuilder: (context, index) {
-          //     final item = items[index];
-          //     return TrackListRow(parcel: item);
-          //   },
-          // )
-          Row(children: [
-            const Spacer(),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(
-                    context,
-                  );
-                },
-                child: const Text("Back")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/route5',
-                  );
-                },
-                child: const Text("Next Step")),
-          ]),
-        ],
-      ),
-    );
+        ));
   }
 }
 

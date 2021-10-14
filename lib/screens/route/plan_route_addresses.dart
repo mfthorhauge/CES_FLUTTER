@@ -20,7 +20,12 @@ class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
         appBar: AppBar(),
         isPlanButtonDisabled: true,
       ),
-      body: Center(
+      body: Container(
+        margin: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(30.0),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: const BorderRadius.all(Radius.circular(12))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -159,11 +164,10 @@ class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
                   ),
                 ),
               ]),
-
               const Spacer(),
               Column(
-                //TODO: Use imported customer object to create information in panel
-              ),
+                  //TODO: Use imported customer object to create information in panel
+                  ),
               const Spacer(),
             ]),
             Row(children: [
