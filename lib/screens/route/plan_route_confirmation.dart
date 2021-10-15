@@ -121,10 +121,27 @@ class PlanRouteConfirmation extends StatelessWidget {
                 ),
               ]),
               const Text("Route"),
-              Row(children: [
-                Column(children: const []),
-                const Spacer(),
-              ]),
+              Container(
+                width: 300,
+                margin: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
+                decoration: const BoxDecoration(
+                  color: Colors.grey,
+                ),
+                child: Row(children: [
+                  Text(context
+                          .watch<OrderService>()
+                          .selectedRouteSelection
+                          ?.origin ??
+                      ""),
+                  Text(context
+                          .watch<OrderService>()
+                          .selectedRouteSelection
+                          ?.destination ??
+                      ""),
+                  const Spacer(),
+                ]),
+              ),
               Row(children: [
                 const Spacer(),
                 Padding(
