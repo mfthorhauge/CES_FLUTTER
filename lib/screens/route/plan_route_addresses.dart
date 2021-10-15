@@ -16,6 +16,7 @@ class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
   Address destinationAddress = Address("", "", "", "");
   Address originAddress = Address("", "", "", "");
 
+  String? originCity;
   String? destinationCity;
 
   Future<List<City>>? cities;
@@ -24,31 +25,6 @@ class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
   void initState() {
     super.initState();
     cities = context.read<OrderService>().getCities();
-  }
-
-  FutureBuilder<List<City>> buildFutureBuilder() {
-    return FutureBuilder<List<City>>(
-      future: cities,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return DropdownButton<String>(
-            onChanged: (String? value) {
-              destinationCity = value;
-            },
-            value: destinationCity,
-            items: snapshot.data != null
-                ? snapshot.data!.map<DropdownMenuItem<String>>((City value) {
-                    return DropdownMenuItem<String>(
-                      value: value.name,
-                      child: Text(value.displayName),
-                    );
-                  }).toList()
-                : List.empty(),
-          );
-        }
-        return const CircularProgressIndicator();
-      },
-    );
   }
 
   @override
@@ -179,7 +155,17 @@ class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(width: 300.0, child: buildFutureBuilder()),
+                  child: SizedBox(
+                      width: 300.0,
+                      child: TextField(
+                        onChanged: (text) {
+                          destinationAddress.city = text;
+                        },
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: "- Select a city -",
+                            labelText: "City"),
+                      )),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),

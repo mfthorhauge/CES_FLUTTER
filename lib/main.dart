@@ -76,10 +76,6 @@ class MyApp extends StatelessWidget {
         }
         return MaterialPageRoute(builder: (context) => const LoginScreen());
       },
-      theme: ThemeData(
-        primaryColor: Colors.white,
-        secondaryHeaderColor: Colors.red,
-      ),
     );
   }
 }
