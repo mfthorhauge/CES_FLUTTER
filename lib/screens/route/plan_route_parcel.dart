@@ -49,7 +49,12 @@ class _PlanRouteParcelState extends State<PlanRouteParcel> {
               ],
             ),
             Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
-              Text("Parcel information"),
+              Text(
+                "Parcel information",
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
             ]),
             Row(children: [
               const Text("Amount"),
