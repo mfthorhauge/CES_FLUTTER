@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
 import 'package:telco_web_client/model/address.dart';
+import 'package:telco_web_client/model/city.dart';
 import 'package:telco_web_client/provider/order_service.dart';
 
 class PlanRouteAddresses extends StatefulWidget {
@@ -14,6 +15,41 @@ class PlanRouteAddresses extends StatefulWidget {
 class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
   Address destinationAddress = Address("", "", "", "");
   Address originAddress = Address("", "", "", "");
+
+  String? destinationCity;
+
+  Future<List<City>>? cities;
+
+  @override
+  void initState() {
+    super.initState();
+    cities = context.read<OrderService>().getCities();
+  }
+
+  FutureBuilder<List<City>> buildFutureBuilder() {
+    return FutureBuilder<List<City>>(
+      future: cities,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return DropdownButton<String>(
+            onChanged: (String? value) {
+              destinationCity = value;
+            },
+            value: destinationCity,
+            items: snapshot.data != null
+                ? snapshot.data!.map<DropdownMenuItem<String>>((City value) {
+                    return DropdownMenuItem<String>(
+                      value: value.name,
+                      child: Text(value.displayName),
+                    );
+                  }).toList()
+                : List.empty(),
+          );
+        }
+        return const CircularProgressIndicator();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -143,18 +179,7 @@ class _PlanRouteAddressesState extends State<PlanRouteAddresses> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: 300.0,
-                    child: TextField(
-                      onChanged: (text) {
-                        destinationAddress.city = text;
-                      },
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "- Select a city -",
-                          labelText: "City"),
-                    ),
-                  ),
+                  child: SizedBox(width: 300.0, child: buildFutureBuilder()),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),

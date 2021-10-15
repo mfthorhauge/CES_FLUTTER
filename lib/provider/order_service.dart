@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:telco_web_client/model/address.dart';
+import 'package:telco_web_client/model/city.dart';
 import 'package:telco_web_client/model/customer.dart';
 import 'package:telco_web_client/model/employee.dart';
 import 'package:telco_web_client/model/parcel.dart';
@@ -107,20 +108,22 @@ class OrderService with ChangeNotifier {
     }
   }
 
-  Future<RouteSuggestion> getCities() async {
-    final response = await http.post(
-      Uri.parse('http://wa-tl-t1.azurewebsites.net:80/routes/findFastestRoute'),
+  List<City> parseCities(String responseBody) {
+    final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
+
+    return parsed.map<City>((json) => City.fromJson(json)).toList();
+  }
+
+  Future<List<City>> getCities() async {
+    final response = await http.get(
+      Uri.parse('http://wa-tl-t1.azurewebsites.net:80/routes/getCities'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(<String, String>{
-        'CityFrom': "test",
-        'CityTo': "test",
-      }),
     );
 
     if (response.statusCode == 200) {
-      return RouteSuggestion.fromJson(jsonDecode(response.body));
+      return parseCities(response.body);
     } else {
       throw Exception('Failed to parse route.');
     }
