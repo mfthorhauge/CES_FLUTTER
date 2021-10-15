@@ -91,8 +91,8 @@ class OrderService with ChangeNotifier {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
-        'CityFrom': "test",
-        'CityTo': "test",
+        'CityFrom': origin.city,
+        'CityTo': destination.city,
       }),
     );
 
@@ -111,8 +111,8 @@ class OrderService with ChangeNotifier {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
-        'CityFrom': "test",
-        'CityTo': "test",
+        'CityFrom': origin.city,
+        'CityTo': destination.city,
       }),
     );
 
