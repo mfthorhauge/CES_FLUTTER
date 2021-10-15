@@ -3,8 +3,21 @@ import 'package:telco_web_client/components/custom_app_bar.dart';
 
 import '../../model/order.dart';
 
-class TrackScreen extends StatelessWidget {
+class TrackScreen extends StatefulWidget {
   const TrackScreen({Key? key}) : super(key: key);
+
+  @override
+  State<TrackScreen> createState() => _TrackScreenState();
+}
+
+class _TrackScreenState extends State<TrackScreen> {
+  Future<Order>? _futureListOfOrders;
+
+  @override
+  void initState() {
+    super.initState();
+    _futureListOfOrders = context.read<OrderService>().trackParcels();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +42,22 @@ class TrackScreen extends StatelessWidget {
   }
 }
 
-class TrackListRow extends StatelessWidget {
-  const TrackListRow({Key? key, required this.order}) : super(key: key);
+FutureBuilder<Order> buildFutureOrderTrackingBuilder() {
+  return FutureBuilder<Order>(
+    future: _futureListOfOrders,
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return OrderRow(
+          routeSuggestion: snapshot.data,
+        );
+      }
+      return const CircularProgressIndicator();
+    },
+  );
+}
+
+class OrderRow extends StatelessWidget {
+  const OrderRow({Key? key, required this.order}) : super(key: key);
 
   final Order order;
 
