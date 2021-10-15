@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:telco_web_client/model/address.dart';
 import 'package:telco_web_client/model/customer.dart';
+import 'package:telco_web_client/model/employee.dart';
 import 'package:telco_web_client/model/parcel.dart';
 import 'package:telco_web_client/model/route_suggestion.dart';
 
 class OrderService with ChangeNotifier {
+  Employee employee = Employee("", "", "");
   Customer customer = Customer(0, "", "", "", "", "");
   Parcel parcel = Parcel(0, "", 0, 0, 0, 0, 0);
   Address origin = Address("", "", "", "");
@@ -23,8 +25,15 @@ class OrderService with ChangeNotifier {
 
   Address get getDestination => destination;
 
+  Employee get getEmployee => employee;
+
   void setCustomerId(String newValue) {
     customer.id = int.tryParse(newValue) ?? 0;
+    notifyListeners();
+  }
+
+  void setEmployee(Employee employee) {
+    this.employee = employee;
     notifyListeners();
   }
 

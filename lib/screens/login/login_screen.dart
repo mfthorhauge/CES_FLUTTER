@@ -8,25 +8,30 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          SizedBox(width: 300 ,child: Image.asset("assets/images/telstar.jpg")),
+          SizedBox(width: 300, child: Image.asset("assets/images/telstar.jpg")),
           const Text("Login", style: TextStyle(fontWeight: FontWeight.bold)),
           const Padding(
             padding: EdgeInsets.all(8.0),
             child: SizedBox(
-                width: 300.0,
-                child:  TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(), hintText: 'User Id'),
-                ),
+              width: 300.0,
+              child: TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Employee email",
+                    labelText: "Employee email"),
+              ),
             ),
           ),
           const Padding(
             padding: EdgeInsets.all(8.0),
             child: SizedBox(
               width: 300.0,
-              child:  TextField(
+              child: TextField(
+                obscureText: true,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(), hintText: 'Password'),
+                    border: OutlineInputBorder(),
+                    hintText: "Password",
+                    labelText: "Password"),
               ),
             ),
           ),
