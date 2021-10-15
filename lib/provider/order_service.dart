@@ -27,7 +27,14 @@ class OrderService with ChangeNotifier {
   Parcel parcel = Parcel(0, "", 0, 0, 0, 0, 0);
   Address origin = Address("", "", "", "");
   Address destination = Address("", "", "", "");
-  Order order = Order("", "", "", 0, 0, "", "");
+  Order order = Order(
+      destination: '',
+      employee: '',
+      customer: '',
+      origin: '',
+      duration: 0,
+      cost: 0,
+      status: '');
   RouteSuggestion? selectedRouteSelection;
 
   Future<RouteSuggestion>? cheapestRouteSuggestion;
@@ -142,6 +149,27 @@ class OrderService with ChangeNotifier {
     } else {
       throw Exception('Failed to parse route.');
     }
+  }
+
+  Future<List<Order>> trackParcels() async {
+    final response = await http.get(
+      Uri.parse('http://wa-tl-t1.azurewebsites.net:80/api/TrackParcels'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return parseParcels(response.body);
+    } else {
+      throw Exception('Failed to parse route.');
+    }
+  }
+
+  List<Order> parseParcels(String responseBody) {
+    final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
+
+    return parsed.map<Parcel>((json) => Order.fromJson(json)).toList();
   }
 
   //TODO: Make it so getCustomer dynamic and not fixed to nr. 1.

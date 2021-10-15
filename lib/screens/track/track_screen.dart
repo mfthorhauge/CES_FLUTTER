@@ -8,11 +8,6 @@ class TrackScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final items = List<Order>.generate(
-        10,
-        (i) => Order(
-            "customer X", "origin", "destination", 10, 10, "done", "done"));
-
     return Scaffold(
       appBar: CustomAppBar(
         appBar: AppBar(),

@@ -7,6 +7,24 @@ class Order {
   final int cost;
   final String status;
 
-  Order(this.customer, this.origin, this.destination, this.duration, this.cost,
-      this.status, this.employee);
+  Order(
+      {required this.customer,
+      required this.origin,
+      required this.destination,
+      required this.duration,
+      required this.cost,
+      required this.status,
+      required this.employee});
+
+  factory Order.fromJson(Map<String, dynamic> json) {
+    return Order(
+      origin: json['CityFrom'],
+      destination: json['CityTo'],
+      duration: json['Duration'],
+      cost: json['Cost'],
+      status: '',
+      employee: '',
+      customer: json['CustomerId'],
+    );
+  }
 }
