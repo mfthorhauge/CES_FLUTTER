@@ -1,12 +1,12 @@
-class Parcel  {
+class Order {
+  final String employee;
   final String customer;
   final String origin;
   final String destination;
-  final String duration;
-  final String trackingNumber;
+  final int duration;
+  final int cost;
   final String status;
-  final String completed;
 
-  Parcel(this.customer, this.origin, this.destination, this.duration,
-      this.trackingNumber, this.status, this.completed);
+  Order(this.customer, this.origin, this.destination, this.duration, this.cost,
+      this.status, this.employee);
 }

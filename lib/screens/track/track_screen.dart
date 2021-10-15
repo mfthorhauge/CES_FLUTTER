@@ -8,16 +8,19 @@ class TrackScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final items = List<Parcel>.generate(
-      10, (i) => Parcel("customer X", "origin", "destination", "10", "ABC", "done", "done")
-    );
+    final items = List<Order>.generate(
+        10,
+        (i) => Order(
+            "customer X", "origin", "destination", 10, 10, "done", "done"));
 
     return Scaffold(
-      appBar: CustomAppBar(appBar: AppBar(), isTrackButtonDisabled: true,),
+      appBar: CustomAppBar(
+        appBar: AppBar(),
+        isTrackButtonDisabled: true,
+      ),
       body: Column(
         children: [
-      const Text("Track a parcel"),
+          const Text("Track a parcel"),
           // ListView.builder(
           //   itemCount: items.length,
           //   itemBuilder: (context, index) {
@@ -32,19 +35,19 @@ class TrackScreen extends StatelessWidget {
 }
 
 class TrackListRow extends StatelessWidget {
-  const TrackListRow({Key? key, required this.parcel}) : super(key: key);
+  const TrackListRow({Key? key, required this.order}) : super(key: key);
 
-  final Parcel parcel;
+  final Order order;
 
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      Text(parcel.customer),
-      Text(parcel.origin),
-      Text(parcel.destination),
-      Text(parcel.destination),
-      Text(parcel.trackingNumber),
-      Text(parcel.status),
+      Text(order.customer),
+      Text(order.origin),
+      Text(order.destination),
+      Text(order.duration.toString()),
+      Text(order.cost.toString()),
+      Text(order.status),
       Checkbox(value: false, onChanged: (bool? value) {})
     ]);
   }
