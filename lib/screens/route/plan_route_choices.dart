@@ -99,17 +99,6 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
                       },
                       child: const Text("Back")),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/route5',
-                        );
-                      },
-                      child: const Text("Next Step")),
-                ),
               ]),
             ],
           ),
@@ -123,7 +112,6 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
         if (snapshot.hasData) {
           return PossibleRouteRow(
             routeSuggestion: snapshot.data,
-            isSelected: isFastestSelected,
           );
         }
         return const CircularProgressIndicator();
@@ -138,7 +126,6 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
         if (snapshot.hasData) {
           return PossibleRouteRow(
             routeSuggestion: snapshot.data,
-            isSelected: isCheapestSelected,
           );
         }
         return const CircularProgressIndicator();
@@ -148,12 +135,9 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
 }
 
 class PossibleRouteRow extends StatefulWidget {
-  const PossibleRouteRow(
-      {Key? key, this.routeSuggestion, required this.isSelected})
-      : super(key: key);
+  const PossibleRouteRow({Key? key, this.routeSuggestion}) : super(key: key);
 
   final RouteSuggestion? routeSuggestion;
-  final bool isSelected;
 
   @override
   State<PossibleRouteRow> createState() => _PossibleRouteRowState();
@@ -179,6 +163,19 @@ class _PossibleRouteRowState extends State<PossibleRouteRow> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(widget.routeSuggestion?.duration.toString() ?? ""),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () {
+                  context.read<OrderService>().selectedRouteSelection =
+                      widget.routeSuggestion;
+                  Navigator.pushNamed(
+                    context,
+                    '/route5',
+                  );
+                },
+                child: const Text("Select route")),
           ),
         ]),
       ),

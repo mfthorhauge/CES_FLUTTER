@@ -15,6 +15,8 @@ class OrderService with ChangeNotifier {
   Parcel parcel = Parcel(0, "", 0, 0, 0, 0, 0);
   Address origin = Address("", "", "", "");
   Address destination = Address("", "", "", "");
+  RouteSuggestion? selectedRouteSelection;
+
   Future<RouteSuggestion>? cheapestRouteSuggestion;
   Future<RouteSuggestion>? fastestRouteSuggestion;
 
