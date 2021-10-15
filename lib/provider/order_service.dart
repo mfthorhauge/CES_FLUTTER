@@ -11,14 +11,21 @@ import 'package:telco_web_client/model/route_suggestion.dart';
 
 class OrderService with ChangeNotifier {
   Employee employee = Employee("", "", "");
-  Customer customer = Customer(0, "", "", "", "", "");
+  Customer customer = Customer(
+    city: '',
+    email: '',
+    id: 0,
+    address: '',
+    name: '',
+    postcode: '',
+  );
   Parcel parcel = Parcel(0, "", 0, 0, 0, 0, 0);
   Address origin = Address("", "", "", "");
   Address destination = Address("", "", "", "");
   Future<RouteSuggestion>? cheapestRouteSuggestion;
   Future<RouteSuggestion>? fastestRouteSuggestion;
 
-  Customer get getCustomer => customer;
+  //Customer get getCustomer => customer;
 
   Parcel get getParcel => parcel;
 
@@ -126,6 +133,23 @@ class OrderService with ChangeNotifier {
       return parseCities(response.body);
     } else {
       throw Exception('Failed to parse route.');
+    }
+  }
+
+  //TODO: Make it so getCustomer dynamic and not fixed to nr. 1.
+  void getCustomer() async {
+    final response = await http.get(
+      Uri.parse(
+          'http://wa-tl-t1.azurewebsites.net:80/login/GetCustomer?request=1'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      customer = Customer.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to parse customer.');
     }
   }
 }

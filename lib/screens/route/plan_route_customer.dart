@@ -13,7 +13,15 @@ class PlanRouteCustomer extends StatefulWidget {
 }
 
 class _PlanRouteCustomerState extends State<PlanRouteCustomer> {
-  Customer customer = Customer(0, "", "", "", "", "");
+  Customer customer = Customer(
+    city: '',
+    email: '',
+    id: 0,
+    address: '',
+    name: '',
+    postcode: '',
+  );
+  Future<Customer>? _futureCustomer;
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +108,8 @@ class _PlanRouteCustomerState extends State<PlanRouteCustomer> {
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
                     onPressed: () {
+                      context.read<OrderService>().getCustomer();
+                      //TODO: Need to lookup customer.
                       Navigator.pushNamed(
                         context,
                         '/route2',

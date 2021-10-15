@@ -11,6 +11,24 @@ class Customer {
   DateTime? expirationDate;
 
   Customer(
-      this.id, this.name, this.email, this.address, this.postcode, this.city,
-      {this.cardHolder, this.creditCard, this.ccv, this.expirationDate});
+      {required this.id,
+      required this.name,
+      required this.email,
+      required this.address,
+      required this.postcode,
+      required this.city,
+      this.cardHolder,
+      this.creditCard,
+      this.ccv,
+      this.expirationDate});
+
+  factory Customer.fromJson(Map<String, dynamic> json) {
+    return Customer(
+        id: json['PersonId'],
+        name: json['name'],
+        email: json['mail'],
+        address: json['address'],
+        postcode: json['postCode'],
+        city: json['city']);
+  }
 }
