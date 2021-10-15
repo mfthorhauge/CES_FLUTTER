@@ -158,10 +158,15 @@ class PlanRouteConfirmation extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/routesuccess',
-                        );
+                        context
+                            .read<OrderService>()
+                            .saveOrder()
+                            .then((value) => {
+                                  Navigator.pushNamed(
+                                    context,
+                                    '/routesuccess',
+                                  )
+                                });
                       },
                       child: const Text("Confirm")),
                 ),

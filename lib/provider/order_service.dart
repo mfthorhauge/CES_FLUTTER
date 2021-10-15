@@ -160,4 +160,27 @@ class OrderService with ChangeNotifier {
       throw Exception('Failed to parse customer.');
     }
   }
+
+  Future<void> saveOrder() async {
+    final response = await http.post(
+      Uri.parse('http://wa-tl-t1.azurewebsites.net:80/routes/postOrder'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        "CustomerId": customer.id.toString(),
+        "EmployeeId": 1.toString(),
+        "CityFrom": origin.city,
+        "CityTo": destination.city,
+        "Price": selectedRouteSelection?.cost.toString() ?? "0",
+        "Duration": selectedRouteSelection?.duration.toString() ?? "0"
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      return;
+    } else {
+      throw Exception('Failed to parse route.');
+    }
+  }
 }
