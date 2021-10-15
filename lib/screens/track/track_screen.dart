@@ -61,6 +61,7 @@ class OrderRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children: [
+      Text(order.employee),
       Text(order.customer),
       Text(order.origin),
       Text(order.destination),
