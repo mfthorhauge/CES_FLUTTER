@@ -8,7 +8,7 @@ class Customer {
   String? cardHolder;
   int? creditCard;
   int? ccv;
-  DateTime? expirationDate;
+  String? expirationDate;
 
   Customer(
       {required this.id,
@@ -25,10 +25,14 @@ class Customer {
   factory Customer.fromJson(Map<String, dynamic> json) {
     return Customer(
         id: json['PersonId'],
-        name: json['name'],
-        email: json['mail'],
-        address: json['address'],
-        postcode: json['postCode'],
-        city: json['city']);
+        name: json['Name'],
+        email: json['Mail'],
+        address: json['Address'],
+        city: json['City'],
+        postcode: json['PostCode'],
+        cardHolder: json['CardHolder'],
+        creditCard: json['CreditCard'],
+        ccv: json['Ccv'],
+        expirationDate: json['DateTime']);
   }
 }

@@ -12,12 +12,16 @@ import 'package:telco_web_client/model/route_suggestion.dart';
 class OrderService with ChangeNotifier {
   Employee employee = Employee("", "", "");
   Customer customer = Customer(
-    city: '',
-    email: '',
     id: 0,
-    address: '',
     name: '',
+    email: '',
+    address: '',
+    city: '',
     postcode: '',
+    cardHolder: '',
+    creditCard: 0,
+    ccv: 0,
+    expirationDate: '',
   );
   Parcel parcel = Parcel(0, "", 0, 0, 0, 0, 0);
   Address origin = Address("", "", "", "");
@@ -140,7 +144,7 @@ class OrderService with ChangeNotifier {
   void getCustomer() async {
     final response = await http.get(
       Uri.parse(
-          'http://wa-tl-t1.azurewebsites.net:80/login/GetCustomer?request=1'),
+          'http://wa-tl-t1.azurewebsites.net:80/login/GetCustomer?request=5'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
