@@ -42,6 +42,7 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
               border: Border.all(color: Colors.grey),
               borderRadius: const BorderRadius.all(Radius.circular(12))),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: const [
@@ -56,8 +57,15 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
                   ),
                 ],
               ),
-              const Text("Route options"),
+              const Text(
+                "Route options",
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
+              const Text("Fastest route"),
               buildFutureFastestBuilder(),
+              const Text("Cheapest route"),
               buildFutureCheapestBuilder(),
               Row(children: [
                 const Spacer(),
@@ -136,13 +144,24 @@ class _PossibleRouteRowState extends State<PossibleRouteRow> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Row(children: [
-        Text(widget.routeSuggestion?.origin ?? ""),
-        Text(widget.routeSuggestion?.destination ?? ""),
-        const Spacer(),
-        Text(widget.routeSuggestion?.cost.toString() ?? ""),
-        Text(widget.routeSuggestion?.duration.toString() ?? ""),
-      ]),
+      child: Container(
+        decoration: const BoxDecoration(
+          color: Colors.grey,
+        ),
+        child: Row(children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(widget.routeSuggestion?.origin ?? ""),
+          ),
+          Text(widget.routeSuggestion?.destination ?? ""),
+          const Spacer(),
+          Text(widget.routeSuggestion?.cost.toString() ?? ""),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(widget.routeSuggestion?.duration.toString() ?? ""),
+          ),
+        ]),
+      ),
     );
   }
 }
