@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
 import 'package:telco_web_client/components/custom_app_bar.dart';
+import 'package:telco_web_client/provider/order_service.dart';
 
 import '../../model/order.dart';
 
@@ -11,7 +13,7 @@ class TrackScreen extends StatefulWidget {
 }
 
 class _TrackScreenState extends State<TrackScreen> {
-  Future<Order>? _futureListOfOrders;
+  Future<List<Order>>? _futureListOfOrders;
 
   @override
   void initState() {
@@ -26,34 +28,29 @@ class _TrackScreenState extends State<TrackScreen> {
         appBar: AppBar(),
         isTrackButtonDisabled: true,
       ),
-      body: Column(
-        children: [
-          const Text("Track a parcel"),
-          // ListView.builder(
-          //   itemCount: items.length,
-          //   itemBuilder: (context, index) {
-          //     final item = items[index];
-          //     return TrackListRow(parcel: item);
-          //   },
-          // )
-        ],
-      ),
+      body:
+          Column(children: [Center(child: buildFutureOrderTrackingBuilder())]),
     );
   }
-}
 
-FutureBuilder<Order> buildFutureOrderTrackingBuilder() {
-  return FutureBuilder<Order>(
-    future: _futureListOfOrders,
-    builder: (context, snapshot) {
-      if (snapshot.hasData) {
-        return OrderRow(
-          routeSuggestion: snapshot.data,
-        );
-      }
-      return const CircularProgressIndicator();
-    },
-  );
+  FutureBuilder<List<Order>> buildFutureOrderTrackingBuilder() {
+    return FutureBuilder<List<Order>>(
+      future: _futureListOfOrders,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return ListView.builder(
+            itemCount: snapshot.data?.length,
+            itemBuilder: (context, index) {
+              return OrderRow(
+                order: snapshot.data![index],
+              );
+            },
+          );
+        }
+        return const CircularProgressIndicator();
+      },
+    );
+  }
 }
 
 class OrderRow extends StatelessWidget {
