@@ -63,9 +63,29 @@ class _PlanRouteChoicesState extends State<PlanRouteChoices> {
                   fontSize: 20.0,
                 ),
               ),
-              const Text("Fastest route"),
+              Row(
+                children: const [
+                  Text("Fastest route"),
+                  Spacer(),
+                  Text("Duration"),
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text("Cost"),
+                  ),
+                ],
+              ),
               buildFutureFastestBuilder(),
-              const Text("Cheapest route"),
+              Row(
+                children: const [
+                  Text("Cheapest route"),
+                  Spacer(),
+                  Text("Duration"),
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text("Cost"),
+                  ),
+                ],
+              ),
               buildFutureCheapestBuilder(),
               Row(children: [
                 const Spacer(),
