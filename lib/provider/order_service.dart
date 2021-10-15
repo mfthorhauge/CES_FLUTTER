@@ -6,6 +6,7 @@ import 'package:telco_web_client/model/address.dart';
 import 'package:telco_web_client/model/city.dart';
 import 'package:telco_web_client/model/customer.dart';
 import 'package:telco_web_client/model/employee.dart';
+import 'package:telco_web_client/model/order.dart';
 import 'package:telco_web_client/model/parcel.dart';
 import 'package:telco_web_client/model/route_suggestion.dart';
 
@@ -26,6 +27,7 @@ class OrderService with ChangeNotifier {
   Parcel parcel = Parcel(0, "", 0, 0, 0, 0, 0);
   Address origin = Address("", "", "", "");
   Address destination = Address("", "", "", "");
+  Order order = Order("", "", "", 0, 0, "", "");
   RouteSuggestion? selectedRouteSelection;
 
   Future<RouteSuggestion>? cheapestRouteSuggestion;
@@ -89,8 +91,8 @@ class OrderService with ChangeNotifier {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
-        'CityFrom': origin.city,
-        'CityTo': destination.city,
+        'CityFrom': "test",
+        'CityTo': "test",
       }),
     );
 
@@ -109,8 +111,8 @@ class OrderService with ChangeNotifier {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
-        'CityFrom': origin.city,
-        'CityTo': destination.city,
+        'CityFrom': "test",
+        'CityTo': "test",
       }),
     );
 
